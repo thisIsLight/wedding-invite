@@ -33,6 +33,7 @@ section {
 .services-section {
   background: var(--color-bg-secondary);
   padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
   margin-bottom: 0;
 }
 

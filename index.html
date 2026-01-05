@@ -77,7 +77,8 @@
     .hero-names { font-family: 'Beau Rivage', cursive; font-size: 2.5rem; font-weight: 400; color: #4a4a4a; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
     .hero-underline { display: block; max-width: 200px; width: 100%; height: auto; margin: -1rem auto 1.5rem auto; opacity: 0.8; }
     .hero-heading { font-family: 'Rufina', serif; font-size: 1.5rem; font-weight: 400; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.3; max-width: 240px; margin-left: auto; margin-right: auto; }
-    .hero-subtitle { font-family: 'Rufina', serif; font-size: 1rem; font-weight: 400; color: #4a4a4a; line-height: 1.6; max-width: 240px; margin-left: auto; margin-right: auto; }
+    .hero-subtitle { font-family: 'Rufina', serif; font-size: 1rem; font-weight: 400; color: #4a4a4a; line-height: 1.6; max-width: clamp(280px, 90vw, 300px); margin-left: auto; margin-right: auto; }
+    .hero-blessing { margin-bottom: 0.75rem; }
     
     /* Respect user's motion preferences */
     @media (prefers-reduced-motion: reduce) {
@@ -120,18 +121,20 @@
 
       
       <div class="hero-content">
-        <h1 id="hero-names" class="hero-names">Keerthana & Sahil</h1>
+        <p class="hero-subtitle hero-blessing">|| Sri Bhagavathi Prasanna ||</p>
         <img src="assets/images/hero-underline.png" alt="Decorative underline" class="hero-underline" loading="lazy">
-        <h2 class="hero-heading">We're getting married!</h2>
-        <p class="hero-subtitle">Join us as we begin our forever...</p>
-      </div>
+        <p class="hero-subtitle hero-blessing">Please join us to celebrate the wedding of</p>
+        </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services-section" aria-labelledby="services-title">
       <div class="container">
-        <h2 id="services-title" class="section-title">Dear friends and family!</h2>
-        <p class="section-subtitle">What began as a journey of love is now turning into a lifelong promise.<br>As we step into this new chapter, we would be honoured to have those closest to our hearts by our side.<br>Join us as we celebrate love, togetherness, and the beginning of forever.</p>
+        <h2 id="services-title" class="section-title">Keerthana C.V.</h2>
+        <p class="section-subtitle parent-info">Daughter of Smt. Sreedevi and Sri. Vishnu C.P</p>
+        <h2 id="services-title" class="section-title">&</h2>
+        <h2 id="services-title" class="section-title">Sahil Rao</h2>
+        <p class="section-subtitle parent-info">Son of Smt. Kiran & Sri. Damodhar Rao</p>
         
       </div>
     </section>
@@ -240,7 +243,7 @@
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
       <div class="container">
-        <p class="footer-text">Thank you.</p>
+        <p class="footer-text">With love and regards,<br>Keerthana and Sahil</p>
       </div>
     </footer>
 

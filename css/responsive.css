@@ -86,7 +86,11 @@ section {
 
 .section-subtitle {
   font-size: var(--font-size-base);
-  margin-bottom: var(--spacing-2xl);
+}
+
+.parent-info {
+  font-size: 0.8rem;
+  margin-bottom: 0 !important;
 }
 
 /* Services Grid - Always Single Column */
@@ -180,6 +184,10 @@ section {
     margin-bottom: var(--spacing-2xl);
   }
 
+  .hero-blessing {
+    margin-bottom: 0.75rem !important;
+  }
+
   .hero-cta {
     padding: var(--spacing-md) var(--spacing-xl);
     font-size: var(--font-size-lg);
@@ -203,6 +211,10 @@ section {
   .section-subtitle {
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-3xl);
+  }
+
+  .parent-info {
+    margin-bottom: 0 !important;
   }
 
   /* Service Cards */
