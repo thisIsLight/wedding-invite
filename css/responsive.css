@@ -1,0 +1,500 @@
+/* Responsive Styles - Mobile First Approach */
+
+/* Base styles are mobile-first (320px+) */
+/* All devices show mobile-width centered layout */
+
+/* ============================================
+   Mobile Base (320px - 479px)
+   ============================================ */
+
+/* Mobile-first base styles are in components.css */
+/* Additional mobile-specific adjustments */
+
+/* Hero Section - Mobile */
+.hero-section {
+  height: 758px;
+  padding: var(--spacing-xl) var(--spacing-md);
+  align-items: flex-start;
+}
+
+/* Wedding invitation hero - mobile specific */
+.hero-meta {
+  flex-direction: row;
+  gap: var(--spacing-4xl);
+  margin-bottom: 0.5rem;
+}
+
+.hero-date,
+.hero-place {
+  gap: 0.1rem;
+}
+
+.meta-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.meta-label {
+  font-size: 1.25rem;
+}
+
+.hero-names {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hero-content {
+  padding: 0;
+}
+
+/* Legacy hero styles (if needed) */
+.hero-title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-cta {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Sections - Mobile */
+section {
+  padding: var(--spacing-2xl) 0 0 0;
+}
+
+.container {
+  padding: 0 var(--spacing-md);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Services Grid - Always Single Column */
+.services-grid {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+/* Portfolio Grid - Always Single Column */
+.portfolio-grid {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.service-card {
+  padding: var(--spacing-lg);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.service-title {
+  font-size: var(--font-size-xl);
+}
+
+.service-description {
+  font-size: var(--font-size-sm);
+}
+
+/* Contact Form - Mobile */
+.contact-form {
+  padding: 0;
+}
+
+.form-group input,
+.form-group textarea {
+  font-size: var(--font-size-base);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.submit-button {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+}
+
+/* Popup Button - Mobile */
+#popup-enter {
+  padding: 8px 16px !important;
+  font-size: 0.8rem !important;
+}
+
+/* Organizational Aspects - Mobile */
+.org-phone {
+  font-size: 2rem !important;
+}
+
+/* Footer - Mobile */
+.footer .container {
+  flex-direction: column;
+  text-align: center;
+  gap: var(--spacing-md);
+}
+
+.footer-links {
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* ============================================
+   Mobile Large (480px - 639px)
+   ============================================ */
+
+@media (min-width: 480px) {
+  /* Hero Section */
+  .hero-section {
+    height: 758px;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .hero-cta {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-lg);
+    width: auto;
+  }
+
+  /* Sections */
+  section {
+    padding: var(--spacing-2xl) 0 0 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .section-title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  /* Service Cards */
+  .service-card {
+    padding: var(--spacing-xl);
+  }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .service-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .service-description {
+    font-size: var(--font-size-base);
+  }
+
+  /* Form */
+  .form-group input,
+  .form-group textarea {
+    padding: var(--spacing-md);
+  }
+
+  .submit-button {
+    width: auto;
+    min-width: 200px;
+  }
+
+  /* Footer */
+  .footer-links {
+    flex-direction: row;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* ============================================
+   Tablet (640px - 959px)
+   ============================================ */
+
+@media (min-width: 640px) {
+  /* Hero Section */
+  .hero-section {
+    height: 758px;
+    padding: var(--spacing-xl) var(--container-padding);
+    align-items: flex-start;
+  }
+
+  /* Wedding invitation hero - tablet */
+  .hero-meta {
+    flex-direction: row;
+    gap: var(--spacing-4xl);
+    margin-bottom: 0.5rem;
+  }
+
+  .meta-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .meta-label {
+    font-size: 1.5rem;
+  }
+
+  .hero-names {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  /* Legacy hero styles */
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  /* Sections */
+  section {
+    padding: var(--spacing-2xl) 0 0 0;
+  }
+
+  .section-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  /* Keep single column layout on all devices */
+
+  /* Footer */
+  .footer .container {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+/* ============================================
+   Desktop Small (960px - 1199px)
+   ============================================ */
+
+@media (min-width: 960px) {
+  /* Hero Section */
+  .hero-section {
+    height: 758px;
+    align-items: flex-start;
+  }
+
+  /* Legacy hero styles */
+  .hero-title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* ============================================
+   Desktop (1024px+)
+   ============================================ */
+
+@media (min-width: 1024px) {
+  /* Wedding invitation hero - desktop */
+  .hero-meta {
+    gap: var(--spacing-4xl);
+    margin-bottom: 0.5rem;
+  }
+
+  .meta-value {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .meta-label {
+    font-size: 1.75rem;
+  }
+
+  .hero-names {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    padding: 0;
+  }
+
+  /* Keep single column layout on all devices */
+
+  /* Service Cards */
+  .service-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .service-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ============================================
+   Desktop Large (1200px+)
+   ============================================ */
+
+@media (min-width: 1200px) {
+  /* Wedding invitation hero - large desktop */
+  .hero-content {
+    max-width: 900px;
+  }
+
+  /* Legacy hero styles */
+  .hero-title {
+    font-size: var(--font-size-6xl);
+  }
+
+  /* Larger spacing for desktop */
+  section {
+    padding: var(--spacing-2xl) 0 0 0;
+  }
+
+  /* Keep single column layout on all devices */
+}
+
+
+
+/* ============================================
+   Touch Device Optimizations
+   ============================================ */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets for mobile */
+  .nav-link,
+  .hero-cta,
+  .submit-button,
+  .footer-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Remove hover effects on touch devices */
+  .service-card:hover,
+  .portfolio-item:hover {
+    transform: none;
+  }
+
+  /* Show portfolio overlay by default on touch */
+  .portfolio-overlay {
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  /* Hide interactive elements */
+  .hero-cta,
+  .contact-form,
+  .footer {
+    display: none;
+  }
+
+  /* Optimize for print */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  /* Remove shadows and animations */
+  * {
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Page breaks */
+  section {
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* ============================================
+   Landscape Orientation Adjustments
+   ============================================ */
+
+@media (max-width: 959px) and (orientation: landscape) {
+  /* Reduce hero height in landscape mode */
+  .hero-section {
+    height: 758px;
+    padding: var(--spacing-xl) var(--container-padding);
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Reduce section padding */
+  section {
+    padding: var(--spacing-2xl) 0 0 0;
+  }
+}
