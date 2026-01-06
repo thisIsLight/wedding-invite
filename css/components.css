@@ -1148,3 +1148,50 @@
   outline-offset: 4px;
   border-radius: var(--radius-sm);
 }
+
+/* Scroll Indicator Arrow (Mobile Only) */
+.scroll-indicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  color: #4a4a4a;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: bounceArrow 2s infinite ease-in-out;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Hide on desktop by default */
+@media (min-width: 768px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* Show only on mobile devices */
+@media (max-width: 767px) {
+  .scroll-indicator {
+    display: block;
+  }
+}
+
+/* Bouncing animation */
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Hidden state */
+.scroll-indicator.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

@@ -7,54 +7,6 @@
 // These utilities are available from utils.js
 
 /**
- * Welcome Popup Management
- */
-function initWelcomePopup() {
-  const popupOverlay = document.getElementById('popup-overlay');
-  const enterButton = document.getElementById('popup-enter');
-  
-  if (!popupOverlay || !enterButton) {
-    console.warn('Popup elements not found');
-    return;
-  }
-  
-  // Show popup on page load
-  popupOverlay.style.display = 'flex';
-  
-  // Handle enter button click
-  enterButton.addEventListener('click', () => {
-    // Add fade out animation
-    popupOverlay.style.transition = 'opacity 0.5s ease-out';
-    popupOverlay.style.opacity = '0';
-    
-    // Remove popup after animation
-    setTimeout(() => {
-      popupOverlay.style.display = 'none';
-      // Start background audio after popup is closed
-      playBackgroundAudio();
-    }, 500);
-  });
-  
-  // Handle escape key to close popup
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popupOverlay.style.display === 'flex') {
-      enterButton.click();
-    }
-  });
-  
-  // Add hover effect to button
-  enterButton.addEventListener('mouseenter', () => {
-    enterButton.style.transform = 'translateY(-2px)';
-    enterButton.style.boxShadow = '0 4px 12px rgba(60, 68, 53, 0.3)';
-  });
-  
-  enterButton.addEventListener('mouseleave', () => {
-    enterButton.style.transform = 'translateY(0)';
-    enterButton.style.boxShadow = 'none';
-  });
-}
-
-/**
  * Example: Debounced window resize handler
  * Useful for expensive operations that should only run after resizing stops
  */
@@ -138,26 +90,38 @@ function pauseBackgroundAudio() {
 }
 
 /**
- * Set up automatic audio playback when hero image loads
+ * Set up automatic audio playback when page loads
  */
 function setupAutoplayAudio() {
-  // Initialize audio first
+  // Initialize and play audio immediately when page loads
   initBackgroundAudio();
   
-  // Don't auto-play until popup is closed - this will be called from popup close handler
+  // Try to play audio after a short delay to ensure page is ready
+  setTimeout(() => {
+    playBackgroundAudio();
+  }, 1000);
   
   // Handle page visibility changes (pause when tab is hidden)
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       pauseBackgroundAudio();
     } else if (audioInitialized && backgroundAudio) {
-      // Only resume if popup is not visible
-      const popup = document.getElementById('popup-overlay');
-      if (!popup || popup.style.display === 'none') {
-        playBackgroundAudio();
-      }
+      playBackgroundAudio();
     }
   });
+  
+  // Handle user interaction to ensure audio can play (fallback for browsers that block autoplay)
+  const enableAudioOnInteraction = () => {
+    if (backgroundAudio && backgroundAudio.paused) {
+      playBackgroundAudio();
+    }
+    // Remove listeners after first interaction
+    document.removeEventListener('click', enableAudioOnInteraction);
+    document.removeEventListener('touchstart', enableAudioOnInteraction);
+  };
+  
+  document.addEventListener('click', enableAudioOnInteraction);
+  document.addEventListener('touchstart', enableAudioOnInteraction);
 }
 
 /**
@@ -165,9 +129,6 @@ function setupAutoplayAudio() {
  */
 function initApp() {
   console.log('Wedding website initialized');
-  
-  // Initialize welcome popup first
-  initWelcomePopup();
   
   // Check if all components are loaded
   const componentsLoaded = {
@@ -178,7 +139,7 @@ function initApp() {
   
   console.log('Components loaded:', componentsLoaded);
   
-  // Initialize automatic audio playback (but don't start until popup is closed)
+  // Initialize automatic audio playback immediately
   setupAutoplayAudio();
   
   // Performance monitoring
@@ -285,4 +246,58 @@ if (document.readyState === 'loading') {
 } else {
   initAccordion();
   initItineraryTabs();
+}
+
+/**
+ * Scroll Indicator Management (Mobile Only)
+ */
+function initScrollIndicator() {
+  const scrollIndicator = document.getElementById('scroll-indicator');
+  
+  if (!scrollIndicator) {
+    return;
+  }
+  
+  let hasScrolled = false;
+  
+  // Hide indicator when user scrolls
+  const handleScroll = () => {
+    if (!hasScrolled && window.pageYOffset > 50) {
+      hasScrolled = true;
+      scrollIndicator.classList.add('hidden');
+      
+      // Remove scroll listener after first scroll
+      window.removeEventListener('scroll', handleScroll);
+    }
+  };
+  
+  // Only show on mobile devices
+  const checkMobile = () => {
+    const isMobile = window.innerWidth <= 767;
+    if (isMobile && !hasScrolled) {
+      scrollIndicator.style.display = 'block';
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      scrollIndicator.style.display = 'none';
+      window.removeEventListener('scroll', handleScroll);
+    }
+  };
+  
+  // Check on load and resize
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+  
+  // Hide indicator on any touch interaction (mobile)
+  document.addEventListener('touchstart', () => {
+    if (!hasScrolled) {
+      setTimeout(handleScroll, 100);
+    }
+  }, { once: true });
+}
+
+// Initialize scroll indicator when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollIndicator);
+} else {
+  initScrollIndicator();
 }
