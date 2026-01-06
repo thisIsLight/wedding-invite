@@ -1062,6 +1062,7 @@
   margin-left: 50%;
   transform: translateX(-50%);
   background-color: white;
+  white-space: nowrap;
 }
 
 .event-schedule {

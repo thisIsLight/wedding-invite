@@ -90,7 +90,15 @@ section {
 
 .parent-info {
   font-size: 0.8rem;
-  margin-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.name-title {
+  margin-bottom: 0px;
+}
+
+.ampersand-title {
+  margin-bottom: 1rem;
 }
 
 /* Services Grid - Always Single Column */
@@ -186,6 +194,9 @@ section {
 
   .hero-blessing {
     margin-bottom: 0.75rem !important;
+    max-width: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-cta {
