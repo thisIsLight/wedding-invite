@@ -1158,7 +1158,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  color: #4a4a4a;
+  color: white;
   opacity: 0.8;
   pointer-events: none;
   animation: bounceArrow 2s infinite ease-in-out;
